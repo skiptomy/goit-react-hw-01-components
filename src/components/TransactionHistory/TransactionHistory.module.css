@@ -1,0 +1,24 @@
+.transactionHistory {
+  width: 350px;
+  border-collapse: collapse;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cells,
+.head {
+  color: rgb(41, 36, 66);
+  padding: 5px;
+  border: 1px solid rgb(228, 223, 240);
+}
+
+.row:nth-child(2n) {
+  background: #b2d7ee;
+}
+
+.head {
+  color: white;
+  height: 25px;
+  background: cyan;
+  text-transform: uppercase;
+}
