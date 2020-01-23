@@ -2,31 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Profile.module.css';
 
-const Profile = ({ user }) => (
-  <div className={styles.profileContainer}>
-    <div>
-      <img src={user.avatar} alt="Avatar" className={styles.image}></img>
-      <p>{user.name}</p>
-      <p>@{user.tag}</p>
-      <p>{user.location}</p>
-    </div>
+const Profile = ({ user }) => {
+  const {
+    avatar,
+    name,
+    tag,
+    location,
+    stats: { followers, views, likes },
+  } = user;
 
-    <ul className={styles.stats}>
-      <li className={styles.item}>
-        <span>Followers</span>
-        <span>{user.stats.followers}</span>
-      </li>
-      <li className={styles.item}>
-        <span>Views</span>
-        <span>{user.stats.views}</span>
-      </li>
-      <li className={styles.item}>
-        <span>Likes</span>
-        <span>{user.stats.likes}</span>
-      </li>
-    </ul>
-  </div>
-);
+  return (
+    <div className={styles.profileContainer}>
+      <div>
+        <img src={avatar} alt="Avatar" className={styles.image}></img>
+        <p>{name}</p>
+        <p>@{tag}</p>
+        <p>{location}</p>
+      </div>
+
+      <ul className={styles.stats}>
+        <li className={styles.item}>
+          <span>Followers</span>
+          <span>{followers}</span>
+        </li>
+        <li className={styles.item}>
+          <span>Views</span>
+          <span>{views}</span>
+        </li>
+        <li className={styles.item}>
+          <span>Likes</span>
+          <span>{likes}</span>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 Profile.propTypes = {
   user: PropTypes.shape({

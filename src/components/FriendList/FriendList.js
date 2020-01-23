@@ -7,7 +7,7 @@ const FriendList = ({ friends }) => (
     {friends.map(friend => (
       <li className={styles.item} key={friend.id}>
         <span
-          className={friend.isOnline === false ? styles.status : styles.true}
+          className={!friend.isOnline ? styles.status : styles.true}
         >
           {friend.isOnline}
         </span>
@@ -21,10 +21,10 @@ const FriendList = ({ friends }) => (
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      isOnline: PropTypes.bool,
-      avatar: PropTypes.string,
-      name: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };
