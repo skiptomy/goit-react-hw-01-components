@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './TransactionHistory.module.css'
+import styles from './TransactionHistory.module.css';
+import Transaction from './Transaction';
 
 const TransactionHistory = ({ transactions }) => (
   <table className={styles.transactionHistory}>
@@ -13,11 +14,9 @@ const TransactionHistory = ({ transactions }) => (
     </thead>
 
     <tbody>
-      {transactions.map(item => (
-        <tr key={item.id} className={styles.row}>
-          <td className={styles.сells}>{item.type}</td>
-          <td className={styles.сells}>{item.amount}</td>
-          <td className={styles.сells}>{item.currency}</td>
+      {transactions.map(transaction => (
+        <tr key={transaction.id} className={styles.row}>
+          <Transaction transaction={transaction} />
         </tr>
       ))}
     </tbody>
@@ -28,9 +27,6 @@ TransactionHistory.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };
