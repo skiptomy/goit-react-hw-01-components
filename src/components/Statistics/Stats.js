@@ -16,12 +16,8 @@ const Stats = ({ title, stats }) => (
   </div>
 );
 
-Stats.defaultProps = {
-  title: '',
-};
-
 Stats.propTypes = {
-  friends: PropTypes.arrayOf(
+  stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
     }),
